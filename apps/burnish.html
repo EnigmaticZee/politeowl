@@ -17,7 +17,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/home.css">
 <link rel="stylesheet" href="../assets/app-page.css">
-<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__pg)document.documentElement.classList.remove('js')},3500)</script>
+<link rel="stylesheet" href="../assets/theme.css">
+<script>(function(d){var p="auto";try{p=localStorage.getItem("po-theme")||"auto"}catch(e){}var k=p==="dark"||(p==="auto"&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches);d.setAttribute("data-theme-pref",p);d.setAttribute("data-theme",k?"dark":"light");var m=document.querySelector("meta[name=theme-color]");if(m)m.content=k?"#0D1124":"#EEF0F5"})(document.documentElement);document.documentElement.classList.add('js');setTimeout(function(){if(!window.__pg)document.documentElement.classList.remove('js')},3500)</script>
 </head>
 <body style="--c1:#FFC24D;--c2:#E2861B">
 <a class="skip" href="#main">Skip to content</a>
@@ -27,6 +28,7 @@
   <nav aria-label="Main">
     <a href="../index.html#apps">Apps</a>
     <a href="../index.html#promise">Our promise</a>
+    <button type="button" class="theme-btn" id="themeBtn" aria-label="Theme: Auto" title="Theme: Auto"><svg class="i-auto" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 3a7 7 0 0 1 0 14z" fill="currentColor"/></svg><svg class="i-light" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="3.6" fill="currentColor"/><path d="M10 1.8v2.1M10 16.1v2.1M1.8 10h2.1M16.1 10h2.1M4.2 4.2l1.5 1.5M14.3 14.3l1.5 1.5M4.2 15.8l1.5-1.5M14.3 5.7l1.5-1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="i-dark" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M16.4 12.6A7 7 0 0 1 7.4 3.6a7 7 0 1 0 9 9z" fill="currentColor"/></svg></button>
     <a class="nav-cta" href="mailto:hello@politeowl.com">Say hello</a>
   </nav>
 </header>

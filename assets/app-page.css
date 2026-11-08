@@ -79,3 +79,15 @@ html.hush .big-float,html.hush .sb-floor,html.hush .sb-star,html.hush .sb-moon{a
 @media (prefers-reduced-motion: reduce){
   .big-float,.sb-floor,.sb-star,.sb-moon{animation:none}
 }
+
+/* ---------- not found ---------- */
+.nf-hero{padding:clamp(40px,8vw,90px) 0 clamp(100px,12vw,160px);text-align:center}
+.nf-wrap{display:flex;flex-direction:column;align-items:center}
+.nf-peek{position:relative;width:170px;height:118px;overflow:hidden;margin-bottom:28px}
+.nf-owl{position:absolute;left:21px;bottom:-74px;width:128px;height:auto;animation:nf-peek 1.5s var(--spring) .3s both}
+.nf-edge{position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:3px;background:var(--ink)}
+.nf h1{font:780 clamp(48px,7vw,96px)/.95 var(--display);letter-spacing:-.045em;margin-top:22px;max-width:13ch;text-wrap:balance}
+.nf .lede{margin:22px auto 0;max-width:36ch}
+.nf .actions{justify-content:center}
+@keyframes nf-peek{from{transform:translateY(105%)}}
+@media (prefers-reduced-motion: reduce){.nf-owl{animation:none}}

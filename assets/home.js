@@ -1048,6 +1048,51 @@
     }
   })();
 
+  /* ---------- light, dark, or whatever your device prefers ---------- */
+  (function theme() {
+    var btn = $('#themeBtn'), meta = $('meta[name="theme-color"]');
+    var mqd = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+    var order = ['auto', 'light', 'dark'];
+    var names = { auto: 'Auto', light: 'Light', dark: 'Dark' };
+    var lines = { auto: 'As your device likes it.', light: 'Lights on.', dark: 'Lights off.' };
+    function pref() { var p = root.getAttribute('data-theme-pref'); return order.indexOf(p) >= 0 ? p : 'auto'; }
+    function apply(p) {
+      var dark = p === 'dark' || (p === 'auto' && !!(mqd && mqd.matches));
+      root.setAttribute('data-theme-pref', p);
+      root.setAttribute('data-theme', dark ? 'dark' : 'light');
+      if (meta) meta.setAttribute('content', dark ? '#0D1124' : '#EEF0F5');
+      if (btn) {
+        var next = order[(order.indexOf(p) + 1) % order.length];
+        btn.setAttribute('aria-label', 'Theme: ' + names[p] + '. Switch to ' + names[next] + '.');
+        btn.setAttribute('title', 'Theme: ' + names[p]);
+      }
+    }
+    // a circle of the new theme grows out of the switch where the browser can; colours ease across elsewhere
+    function change(p, x, y) {
+      if (reduce) { apply(p); return; }
+      if (document.startViewTransition) {
+        root.style.setProperty('--vt-x', x + 'px'); root.style.setProperty('--vt-y', y + 'px');
+        document.startViewTransition(function () { apply(p); });
+        return;
+      }
+      root.classList.add('theme-anim'); apply(p);
+      clearTimeout(change.t); change.t = setTimeout(function () { root.classList.remove('theme-anim'); }, 650);
+    }
+    if (btn) btn.addEventListener('click', function () {
+      var p = order[(order.indexOf(pref()) + 1) % order.length], r = btn.getBoundingClientRect();
+      try { localStorage.setItem('po-theme', p); } catch (e) { /* private mode: just this visit */ }
+      change(p, r.left + r.width / 2, r.top + r.height / 2);
+      if (Peeker) Peeker.peek(lines[p], 1700);
+    });
+    if (mqd) {
+      var follow = function () { if (pref() === 'auto') { root.classList.add('theme-anim'); apply('auto'); setTimeout(function () { root.classList.remove('theme-anim'); }, 650); } };
+      if (mqd.addEventListener) mqd.addEventListener('change', follow); else if (mqd.addListener) mqd.addListener(follow);
+    }
+    // another tab changed it: follow along
+    window.addEventListener('storage', function (e) { if (e.key === 'po-theme') apply(order.indexOf(e.newValue) >= 0 ? e.newValue : 'auto'); });
+    apply(pref());
+  })();
+
   /* ---------- reveal on scroll ---------- */
   (function reveal() {
     var els = $$('[data-reveal]');
