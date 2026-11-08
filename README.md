@@ -3,13 +3,15 @@
 Useful things, made with care. Plain static site, no build step.
 
 ## Files
-- `index.html` — home: the owl on its moon, the shelf (filtered by apps, games, extensions, books),
+- `index.html` — home: the owl on its moon, the app shelf with filters,
   "Sure, you could build it yourself", the polite promise, and the night-sky footer
 - `assets/home.css`, `assets/home.js` — styling and behaviour for the home page
   (app-icon physics uses matter-js 0.19.0 from cdnjs)
 - `apps/*.html` — one page per app
 - `assets/app-page.css` — the app pages and the 404 page; `assets/theme.css` — light and dark themes
 - `404.html` — not-found page (uses absolute `/` paths, so it expects the site at a domain root)
+- `privacy.html`, `refunds.html`, `terms.html` — privacy, refund and cancellation, and terms of service,
+  linked from the footer on every page (update the "Last updated" date when they change)
 - `brand/logo/`, `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` — logo files
 
 ## Keeping it accurate
@@ -27,10 +29,9 @@ same checkout.
 
 ## Adding an app
 In `index.html`, copy a `<li class="card" ...>` on the shelf and set `data-price`
-(paid, or soon for things without a price yet) and `data-cat` to what it is: apps, games,
-extensions or books. Its label under the name says where it runs ("Mac app", "Chrome extension").
-The filter chips list only kinds that have something in them, and the whole row stays hidden while
-there is just one kind. Update the chips and the count when you add the first thing of a new kind. Add a matching toy in the hero's
+(paid, or soon for apps without a price yet) and `data-cat` to what it helps with (tidy, files or
+everyday). The label under the name reads "Tidy up · Mac". The shelf holds apps only: games, Chrome
+extensions and books each get their own section rather than joining this grid. Add a matching toy in the hero's
 `#toys` list, put its icon in `assets/icons/` (256px and 512px), then copy an
 `apps/*.html` page and update its details and "More from Polite Owl" cards.
 

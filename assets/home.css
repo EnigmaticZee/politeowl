@@ -284,7 +284,10 @@ html:not(.js) .sky-hint{display:none}
 .foot nav a{color:#D5D9EE;text-decoration:none;font-size:15px}
 .foot nav a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:5px}
 .foot :focus-visible{outline-color:#fff}
-.legal{grid-column:1/-1;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);font-size:13px;color:#9AA2C8}
+.legal{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);font-size:13px;color:#9AA2C8}
+.legal-links{display:flex;flex-wrap:wrap;gap:6px 20px}
+.legal-links a{color:#B9C0E2;text-decoration:none}
+.legal-links a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:4px}
 
 /* ---------- peeking owl ---------- */
 .peeker{position:fixed;right:clamp(18px,5vw,64px);bottom:0;z-index:45;width:96px;height:100px;pointer-events:none}
