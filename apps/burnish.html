@@ -2,94 +2,141 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Burnish — Polite Owl</title>
 <meta name="description" content="Keeps every app on your Mac up to date, quietly, in the background.">
 <meta property="og:title" content="Burnish — Polite Owl">
 <meta property="og:description" content="Keeps every app on your Mac up to date, quietly, in the background.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#F8FAFC">
+<meta property="og:image" content="https://www.politeowl.com/assets/icons/burnish-512.png">
+<meta name="theme-color" content="#EEF0F5">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/home.css">
+<link rel="stylesheet" href="../assets/app-page.css">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__pg)document.documentElement.classList.remove('js')},3500)</script>
 </head>
-<body>
+<body style="--c1:#FFC24D;--c2:#E2861B">
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="../index.html" aria-label="Polite Owl, home"><svg viewBox="0 0 200 200" width="34" height="34" aria-hidden="true" focusable="false"><defs><mask id="m-h"><rect width="200" height="200" fill="#fff"/><circle cx="100" cy="82" r="78" fill="#000"/><g transform="translate(28 37.8) scale(0.72)"><g transform="rotate(-4 100 110)"><path d="M44 78 C44 56 52 40 62 30 L76 50 C92 44 108 44 124 50 L138 30 C148 40 156 56 156 78 L156 128 C156 160 132 178 100 178 C68 178 44 160 44 128 Z" fill="#000" stroke="#000" stroke-width="10" stroke-linejoin="round"/></g></g></mask></defs><g transform="translate(0 -25)"><circle cx="100" cy="108" r="84" fill="#E8A33D" mask="url(#m-h)"/><g transform="translate(28 37.8) scale(0.72)"><g transform="rotate(-4 100 110)"><path d="M44 78 C44 56 52 40 62 30 L76 50 C92 44 108 44 124 50 L138 30 C148 40 156 56 156 78 L156 128 C156 160 132 178 100 178 C68 178 44 160 44 128 Z" fill="#0F172A"/><circle cx="78" cy="96" r="17" fill="none" stroke="#FFFFFF" stroke-width="10"/><circle cx="122" cy="96" r="17" fill="none" stroke="#FFFFFF" stroke-width="10"/></g></g></g></svg><span>Polite Owl</span></a>
-    <nav aria-label="Main">
-      <a href="../index.html#apps">Apps</a>
-      <a href="../index.html#promise">Our promise</a>
-      <a href="mailto:hello@politeowl.com">Contact</a>
-    </nav>
-  </div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="../index.html" aria-label="Polite Owl, home"><svg viewBox="0 0 200 200" width="30" height="30" aria-hidden="true" focusable="false"><defs><mask id="m-nav"><rect width="200" height="200" fill="#fff"/><circle cx="100" cy="82" r="78" fill="#000"/><g transform="translate(28 37.8) scale(0.72)"><g transform="rotate(-4 100 110)"><path d="M44 78 C44 56 52 40 62 30 L76 50 C92 44 108 44 124 50 L138 30 C148 40 156 56 156 78 L156 128 C156 160 132 178 100 178 C68 178 44 160 44 128 Z" fill="#000" stroke="#000" stroke-width="10" stroke-linejoin="round"/></g></g></mask></defs><g transform="translate(0 -25)"><circle cx="100" cy="108" r="84" fill="#F2A23A" mask="url(#m-nav)"/><g transform="translate(28 37.8) scale(0.72)"><g transform="rotate(-4 100 110)"><path d="M44 78 C44 56 52 40 62 30 L76 50 C92 44 108 44 124 50 L138 30 C148 40 156 56 156 78 L156 128 C156 160 132 178 100 178 C68 178 44 160 44 128 Z" fill="#141A33"/><circle cx="78" cy="96" r="17" fill="none" stroke="#FFFFFF" stroke-width="10"/><circle cx="122" cy="96" r="17" fill="none" stroke="#FFFFFF" stroke-width="10"/></g></g></g></svg><span>Polite Owl</span></a>
+  <nav aria-label="Main">
+    <a href="../index.html#apps">Apps</a>
+    <a href="../index.html#promise">Our promise</a>
+    <a class="nav-cta" href="mailto:hello@politeowl.com">Say hello</a>
+  </nav>
 </header>
-<main id="main">
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html#apps">All apps</a><span aria-hidden="true">/</span><span>Burnish</span></nav>
-    <section class="app-hero">
-      <div class="tile big" style="--tile:#2F5D50" aria-hidden="true">B</div>
-      <div>
-        <h1>Burnish</h1>
-        <p class="lede">Keeps every app on your Mac up to date, quietly, in the background.</p>
-        <div class="badges"><span class="badge free">Free</span><span class="badge oss">Open source</span><span class="badge plain">Tidy up</span><span class="badge plain">macOS</span></div>
-        <div class="actions"><a class="btn primary" href="[BURNISH_DOWNLOAD_URL]">Download</a><a class="btn ghost" href="[BURNISH_REPO_URL]">View source</a></div>
+
+<main id="main" class="app-main">
+  <section class="app-hero" aria-labelledby="app-title">
+    <div class="wrap">
+      <a class="crumbs" href="../index.html#apps"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>All apps</a>
+      <div class="app-grid">
+        <div class="app-copy">
+          <p class="app-kicker" data-reveal><i aria-hidden="true"></i>Tidy up · Mac</p>
+          <h1 id="app-title" data-reveal>Burnish</h1>
+          <p class="lede" data-reveal>Keeps every app on your Mac up to date, quietly, in the background.</p>
+          <div class="badges" data-reveal><span class="badge price">$5.99</span><span class="badge alpha">Beta</span></div>
+          <div class="actions" data-reveal>
+            <a class="btn btn-primary magnetic" href="https://www.getburnish.app/" rel="noopener"><span>Get Burnish</span><span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 20 20" width="16" height="16"><path d="M6 14 14 6M7 6h7v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="btn btn-ghost magnetic" href="mailto:hello@politeowl.com?subject=Burnish"><span>Ask a question</span></a>
+          </div>
+        </div>
+        <div class="stage-big" data-reveal aria-hidden="true">
+          <svg class="sb-star s1" viewBox="0 0 40 40" focusable="false"><path fill="#F2A23A" d="M20 2c1.8 10.4 7.6 16.2 18 18-10.4 1.8-16.2 7.6-18 18-1.8-10.4-7.6-16.2-18-18 10.4-1.8 16.2-7.6 18-18z"/></svg>
+          <svg class="sb-star s2" viewBox="0 0 40 40" focusable="false"><path fill="#E2861B" d="M20 2c1.8 10.4 7.6 16.2 18 18-10.4 1.8-16.2 7.6-18 18-1.8-10.4-7.6-16.2-18-18 10.4-1.8 16.2-7.6 18-18z"/></svg>
+          <svg class="sb-star s3" viewBox="0 0 40 40" focusable="false"><path fill="#7C5CF5" d="M20 2c1.8 10.4 7.6 16.2 18 18-10.4 1.8-16.2 7.6-18 18-1.8-10.4-7.6-16.2-18-18 10.4-1.8 16.2-7.6 18-18z"/></svg>
+          <span class="sb-moon"></span>
+          <div class="big-float"><img class="big-icon" src="../assets/icons/burnish-512.png" alt="" width="512" height="512" draggable="false"></div>
+          <span class="sb-floor"></span>
+        </div>
       </div>
-    </section>
-    <figure class="shot">
-      <div class="shot-frame"><span>[SCREENSHOT OF BURNISH]</span></div>
-    </figure>
-    <section class="points" aria-label="What it does">
-      <ul class="promise-grid"><li><h3>Updates in the background</h3><p>Checks for new versions and installs them without you babysitting it.</p></li><li><h3>Stays out of the way</h3><p>No pop-ups every five minutes. It does the job and goes quiet.</p></li><li><h3>Free and open source</h3><p>Read the code, file an issue, or build it yourself.</p></li></ul>
-    </section>
-    <section class="facts" aria-label="Details">
-      <dl>
-        <div><dt>Price</dt><dd>Free</dd></div>
-        <div><dt>Works on</dt><dd>[macOS VERSION] or later</dd></div>
-        <div><dt>Version</dt><dd>[VERSION]</dd></div>
+    </div>
+  </section>
+
+  <section class="feats" id="what" aria-labelledby="what-title" data-peek="Nicely kept.">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="what-title" data-reveal>What it <span class="serif">does</span>.</h2></div>
+      <ul class="feat-grid">
+        <li class="feat" data-reveal><span class="feat-num" aria-hidden="true">01</span><h3>Updates from anywhere</h3><p>Apps from direct downloads, the App Store and Homebrew, each checked against the best source it has.</p></li>
+        <li class="feat" data-reveal><span class="feat-num" aria-hidden="true">02</span><h3>It never guesses</h3><p>When it isn&#x27;t sure which app is which, it asks you instead of raising a false alarm.</p></li>
+        <li class="feat" data-reveal><span class="feat-num" aria-hidden="true">03</span><h3>Careful by nature</h3><p>Every download is checked first, apps are asked to quit politely, and the old version goes to the Trash.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="details" aria-label="Details">
+    <div class="wrap">
+      <dl class="facts" data-reveal>
+        <div><dt>Price</dt><dd>$5.99 USD</dd></div>
+        <div><dt>Works on</dt><dd>macOS 14 or later</dd></div>
+        <div><dt>Version</dt><dd>0.5 beta</dd></div>
         <div><dt>Support</dt><dd><a href="mailto:hello@politeowl.com?subject=Burnish">hello@politeowl.com</a></dd></div>
       </dl>
-    </section>
-    <section class="more-apps" aria-labelledby="more-title">
-      <h2 id="more-title">More from Polite Owl</h2>
-      <ul class="grid"><li class="card" data-price="paid" data-cat="tidy">
-  <div class="tile" style="--tile:#7A4B8C" aria-hidden="true">D</div>
-  <h3><a class="card-link" href="dupetabs.html">DupeTabs</a></h3>
-  <p>Finds duplicate browser tabs and closes them for you.</p>
-  <div class="card-foot">
-    <div class="badges"><span class="badge paid">Paid</span></div>
-    <span class="cat">Tidy up</span>
-  </div>
-</li>
-<li class="card" data-price="free" data-cat="everyday">
-  <div class="tile" style="--tile:#B4691F" aria-hidden="true">P</div>
-  <h3><a class="card-link" href="pawsoff.html">PawsOff</a></h3>
-  <p>Locks your keyboard in one click, so paws, kids and cleaning cloths can&#x27;t type.</p>
-  <div class="card-foot">
-    <div class="badges"><span class="badge free">Free</span><span class="badge oss">Open source</span></div>
-    <span class="cat">Everyday</span>
-  </div>
-</li>
-<li class="card" data-price="paid" data-cat="files">
-  <div class="tile" style="--tile:#3E6680" aria-hidden="true">Z</div>
-  <h3><a class="card-link" href="zipling.html">Zipling</a></h3>
-  <p>Fast file compression, powered by the Arca engine.</p>
-  <div class="card-foot">
-    <div class="badges"><span class="badge paid">Paid</span></div>
-    <span class="cat">Files</span>
-  </div>
-</li></ul>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <section class="more" id="more" aria-labelledby="more-title" data-peek="After you.">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="more-title" data-reveal>More from Polite <span class="serif">Owl</span>.</h2></div>
+      <ul class="grid">
+        <li class="card" data-reveal style="--c1:#B49BFF;--c2:#7A5AF0">
+          <div class="card-in">
+            <span class="card-glow" aria-hidden="true"></span>
+            <div class="card-top">
+              <span class="app-icon" aria-hidden="true"><img src="../assets/icons/dupetabs-256.png" alt="" width="74" height="74" draggable="false"></span>
+              <span class="card-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="16" height="16"><path d="M6 14 14 6M7 6h7v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <h3><a class="card-link" href="dupetabs.html">DupeTabs</a></h3>
+            <p>Finds duplicate browser tabs and closes them for you.</p>
+            <div class="card-foot"><div class="badges"><span class="badge alpha">Alpha</span><span class="badge soon">Price soon</span></div><span class="cat">Tidy up</span></div>
+          </div>
+        </li>
+        <li class="card" data-reveal style="--c1:#FF8E7A;--c2:#E2564A">
+          <div class="card-in">
+            <span class="card-glow" aria-hidden="true"></span>
+            <div class="card-top">
+              <span class="app-icon" aria-hidden="true"><img src="../assets/icons/pawsoff-256.png" alt="" width="74" height="74" draggable="false"></span>
+              <span class="card-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="16" height="16"><path d="M6 14 14 6M7 6h7v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <h3><a class="card-link" href="pawsoff.html">PawsOff</a></h3>
+            <p>Locks your keyboard in one click, so paws, kids and cleaning cloths can&#x27;t type.</p>
+            <div class="card-foot"><div class="badges"><span class="badge price">$5.99</span></div><span class="cat">Everyday</span></div>
+          </div>
+        </li>
+        <li class="card" data-reveal style="--c1:#6F8BFF;--c2:#2F48D6">
+          <div class="card-in">
+            <span class="card-glow" aria-hidden="true"></span>
+            <div class="card-top">
+              <span class="app-icon" aria-hidden="true"><img src="../assets/icons/zipling-256.png" alt="" width="74" height="74" draggable="false"></span>
+              <span class="card-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" width="16" height="16"><path d="M6 14 14 6M7 6h7v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <h3><a class="card-link" href="zipling.html">Zipling</a></h3>
+            <p>Fast file compression, powered by the Arca engine.</p>
+            <div class="card-foot"><div class="badges"><span class="badge price">From $9.99</span></div><span class="cat">Files</span></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 </main>
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand"><svg viewBox="0 0 200 200" width="40" height="40" aria-hidden="true" focusable="false"><defs><mask id="m-f"><rect width="200" height="200" fill="#fff"/><circle cx="100" cy="82" r="78" fill="#000"/><g transform="translate(28 37.8) scale(0.72)"><g transform="rotate(-4 100 110)"><path d="M44 78 C44 56 52 40 62 30 L76 50 C92 44 108 44 124 50 L138 30 C148 40 156 56 156 78 L156 128 C156 160 132 178 100 178 C68 178 44 160 44 128 Z" fill="#000" stroke="#000" stroke-width="10" stroke-linejoin="round"/></g></g></mask></defs><g transform="translate(0 -25)"><circle cx="100" cy="108" r="84" fill="#E8A33D" mask="url(#m-f)"/><g transform="translate(28 37.8) scale(0.72)"><g transform="rotate(-4 100 110)"><path d="M44 78 C44 56 52 40 62 30 L76 50 C92 44 108 44 124 50 L138 30 C148 40 156 56 156 78 L156 128 C156 160 132 178 100 178 C68 178 44 160 44 128 Z" fill="#F1F5F9"/><circle cx="78" cy="96" r="17" fill="none" stroke="#0F172A" stroke-width="10"/><circle cx="122" cy="96" r="17" fill="none" stroke="#0F172A" stroke-width="10"/></g></g></g></svg>
-      <div><strong>Polite Owl</strong><span>Small, polite software.</span></div>
+
+<footer class="foot" id="foot" data-peek="Do mind the stars.">
+  <div class="sky" id="sky">
+    <canvas id="skyCanvas" aria-hidden="true"></canvas>
+    <div class="wrap sky-copy">
+      <p class="sky-line">Thanks for stopping by.</p>
+      <p class="sky-hint">Tap the sky to light a star, and draw a constellation of your own.</p>
+      <button type="button" class="sky-clear" id="skyClear" hidden>Clear the sky</button>
+    </div>
+  </div>
+  <div class="wrap foot-inner">
+    <div class="foot-brand"><svg viewBox="0 0 200 200" width="46" height="46" aria-hidden="true" focusable="false"><defs><mask id="m-foot"><rect width="200" height="200" fill="#fff"/><circle cx="100" cy="82" r="78" fill="#000"/><g transform="translate(28 37.8) scale(0.72)"><g transform="rotate(-4 100 110)"><path d="M44 78 C44 56 52 40 62 30 L76 50 C92 44 108 44 124 50 L138 30 C148 40 156 56 156 78 L156 128 C156 160 132 178 100 178 C68 178 44 160 44 128 Z" fill="#000" stroke="#000" stroke-width="10" stroke-linejoin="round"/></g></g></mask></defs><g transform="translate(0 -25)"><circle cx="100" cy="108" r="84" fill="#F2A23A" mask="url(#m-foot)"/><g transform="translate(28 37.8) scale(0.72)"><g transform="rotate(-4 100 110)"><path d="M44 78 C44 56 52 40 62 30 L76 50 C92 44 108 44 124 50 L138 30 C148 40 156 56 156 78 L156 128 C156 160 132 178 100 178 C68 178 44 160 44 128 Z" fill="#F1F5F9"/><circle cx="78" cy="96" r="17" fill="none" stroke="#0F172A" stroke-width="7"/><circle cx="122" cy="96" r="17" fill="none" stroke="#0F172A" stroke-width="7"/><circle cx="78" cy="96" r="6" fill="#0F172A"/><circle cx="122" cy="96" r="6" fill="#0F172A"/><path d="M93 113 L107 113 L100 125 Z" fill="#E8A33D" stroke="#E8A33D" stroke-width="4" stroke-linejoin="round"/></g></g></g></svg>
+      <div><strong>Polite Owl</strong><span>Useful things, made with care.</span></div>
     </div>
     <nav aria-label="Footer">
       <a href="../index.html#apps">Apps</a>
@@ -99,5 +146,15 @@
     <p class="legal">© 2026 Polite Owl — a brand of Observant Systems Inc.</p>
   </div>
 </footer>
+
+<!-- the owl that peeks in now and then -->
+<div class="peeker" id="peeker" aria-hidden="true">
+  <div class="peek-bubble">Pardon me.</div>
+  <svg class="peek-owl" viewBox="30 16 140 174" focusable="false"><g transform="rotate(-4 100 110)"><path d="M44 78 C44 56 52 40 62 30 L76 50 C92 44 108 44 124 50 L138 30 C148 40 156 56 156 78 L156 128 C156 160 132 178 100 178 C68 178 44 160 44 128 Z" fill="#141A33" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke"/><circle class="pring" cx="78" cy="96" r="17" fill="none" stroke="#fff" stroke-width="7"/><circle class="pring" cx="122" cy="96" r="17" fill="none" stroke="#fff" stroke-width="7"/><circle id="peekPL" cx="78" cy="96" r="6" fill="#fff"/><circle id="peekPR" cx="122" cy="96" r="6" fill="#fff"/><path d="M93 113 L107 113 L100 125 Z" fill="#F2A23A" stroke="#F2A23A" stroke-width="4" stroke-linejoin="round"/></g></svg>
+</div>
+
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+
+<script src="../assets/home.js" defer></script>
 </body>
 </html>

@@ -12,15 +12,16 @@ Useful things, made with care. Plain static site, no build step.
 - `404.html` — not-found page (uses absolute `/` paths, so it expects the site at a domain root)
 - `brand/logo/`, `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` — logo files
 
-## Before launch
-Search the app pages for `[` to find every placeholder: download/buy links, prices,
-platform versions, version numbers, screenshots. Also confirm the three "polite promise"
-lines are true for every app.
+## Keeping it accurate
+Prices, platforms and versions live in each `apps/*.html` page (the details strip) and in the
+badges on the home page shelf. When something changes, update both. Also confirm the three
+"polite promise" lines stay true for every app.
 
 ## Adding an app
 In `index.html`, copy a `<li class="card" ...>` on the shelf and set `data-price`
-(free/paid) and `data-cat` (tidy/files/everyday). Add a matching toy in the hero's
-`#toys` list, then copy an `apps/*.html` page.
+(paid, or soon for apps without a price yet) and `data-cat` (tidy/files/everyday). Add a matching toy in the hero's
+`#toys` list, put its icon in `assets/icons/` (256px and 512px), then copy an
+`apps/*.html` page and update its details and "More from Polite Owl" cards.
 
 ## Running it locally
 ```bash

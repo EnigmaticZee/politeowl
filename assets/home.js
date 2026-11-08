@@ -838,7 +838,7 @@
       });
     }
 
-    // 3. Free where we can, fair where we can't: a balance you can tip
+    // 3. Fair prices, no tricks: a balance you can tip
     var fair = $('.p-fair');
     if (!fair) return;
     var stage = $('.stage', fair), beam = $('#beam'), panL = $('#panL'), panR = $('#panR');
@@ -856,7 +856,7 @@
       panR.setAttribute('transform', 'translate(' + (120 + 82 * c).toFixed(2) + ' ' + (44 + 82 * s).toFixed(2) + ')');
     }
     function tag() {
-      fairTag.textContent = (n.l === n.r && n.l > 0) ? 'Perfectly fair' : n.l > n.r ? 'Leaning free' : n.r > n.l ? 'Leaning fair' : fairIdle;
+      fairTag.textContent = (n.l === n.r && n.l > 0) ? 'Perfectly fair' : n.l > n.r ? 'A bit pricey' : n.r > n.l ? 'Great value' : fairIdle;
     }
     function empty() {
       [coinsL, coinsR].forEach(function (g) { g.classList.add('spill'); });

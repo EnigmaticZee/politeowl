@@ -110,9 +110,9 @@ html:not(.js) .toybar{display:none}
 .toy.grabbed{cursor:grabbing;z-index:3}
 .toy-body{position:absolute;inset:0;display:grid;place-items:center;transition:opacity .5s,filter .5s}
 .toy.dim .toy-body{opacity:.35;filter:grayscale(1)}
-.app .toy-body,.app-icon{border-radius:27%;background:linear-gradient(155deg,var(--c1),var(--c2));box-shadow:inset 0 2px 1px rgba(255,255,255,.5),inset 0 -10px 18px rgba(0,0,0,.14)}
-.app .toy-body::before,.app-icon::before{content:"";position:absolute;left:9%;right:9%;top:5%;height:44%;border-radius:45% 45% 50% 50%/70% 70% 35% 35%;background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,0));pointer-events:none}
-.glyph{position:relative;width:58%;height:58%;overflow:visible}
+.app .toy-body,.app-icon{border-radius:22.5%}
+.app .toy-body img,.app-icon img{display:block;width:100%;height:100%;-webkit-user-drag:none;user-select:none;-webkit-user-select:none;pointer-events:none}
+.app .toy-body{filter:drop-shadow(0 12px 14px rgba(19,21,40,.2))}
 .toy-label{position:absolute;left:50%;bottom:calc(100% + 12px);transform:translate(-50%,6px);padding:8px 12px;border-radius:999px;background:var(--ink);color:#fff;font:600 13px/1 var(--body);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .4s var(--spring)}
 @media (hover:hover){.toy:hover .toy-label{opacity:1;transform:translate(-50%,0)}}
 .toy.grabbed .toy-label{opacity:0}
@@ -123,22 +123,6 @@ html:not(.js) .toybar{display:none}
 .ring .toy-body{border-radius:50%;background:radial-gradient(circle,transparent 0 33%,#141A33 34% 100%)}
 .star .toy-body svg,.crescent .toy-body svg{width:100%;height:100%;overflow:visible}
 .toy.poke .toy-body{animation:poke .5s var(--out)}
-
-/* app glyph micro-stories, on the toys and the cards */
-.glyph *{transition:transform .6s var(--spring),opacity .4s}
-.g-s1{transform-origin:22px 24px}
-.g-s2{transform-origin:36.5px 11.5px}
-.g-tab,.g-hole{fill:var(--c2)}
-.g-t1,.g-t2,.g-t3,.g-t4,.g-pad{transform-origin:24px 30px}
-.toy:hover .g-s1,.card:hover .g-s1,.card:focus-within .g-s1{transform:rotate(90deg) scale(.9)}
-.toy:hover .g-s2,.card:hover .g-s2,.card:focus-within .g-s2{transform:scale(1.55) rotate(45deg)}
-.toy:hover .g-back,.card:hover .g-back,.card:focus-within .g-back{transform:translate(7px,7px);opacity:0}
-.toy:hover .g-pad,.card:hover .g-pad,.card:focus-within .g-pad{transform:scale(.9)}
-.toy:hover .g-t1,.card:hover .g-t1,.card:focus-within .g-t1{transform:translate(-2.5px,-1.5px)}
-.toy:hover .g-t2,.card:hover .g-t2,.card:focus-within .g-t2{transform:translate(-1.2px,-3px)}
-.toy:hover .g-t3,.card:hover .g-t3,.card:focus-within .g-t3{transform:translate(1.2px,-3px)}
-.toy:hover .g-t4,.card:hover .g-t4,.card:focus-within .g-t4{transform:translate(2.5px,-1.5px)}
-.toy:hover .g-pull,.card:hover .g-pull,.card:focus-within .g-pull{transform:translateY(12px)}
 
 /* no JS: the toys simply sit on the floor */
 html:not(.js) .toys{top:auto;bottom:18px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:center;gap:16px;padding:0 20px}
@@ -175,7 +159,7 @@ html:not(.js) .filters{display:none}
 .card-glow{position:absolute;left:var(--gx,85%);top:var(--gy,0%);width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,var(--c1),transparent 62%);opacity:0;transform:translate(-50%,-50%);transition:opacity .5s;pointer-events:none}
 .card:hover .card-glow,.card:focus-within .card-glow{opacity:.26}
 .card-top{position:relative;display:flex;justify-content:space-between;align-items:flex-start}
-.app-icon{position:relative;display:grid;place-items:center;width:74px;height:74px;box-shadow:inset 0 2px 1px rgba(255,255,255,.5),inset 0 -10px 18px rgba(0,0,0,.14),0 14px 24px -14px var(--c2);transition:transform .6s var(--spring)}
+.app-icon{position:relative;display:grid;place-items:center;width:74px;height:74px;box-shadow:0 14px 24px -14px var(--c2);transition:transform .6s var(--spring)}
 .card:hover .app-icon{transform:translateZ(30px) rotate(-6deg) scale(1.04)}
 .card-arrow{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--ink);transition:transform .55s var(--spring),background .3s,color .3s,box-shadow .3s}
 .card:hover .card-arrow,.card:focus-within .card-arrow{transform:rotate(45deg);background:var(--ink);color:#fff;box-shadow:none}
@@ -191,6 +175,9 @@ html:not(.js) .filters{display:none}
 .badge.free{background:#DCF5E7;color:#14613C}
 .badge.paid{background:#FDEBD3;color:#874A0B}
 .badge.oss{background:#E6E9F8;color:#323D78}
+.badge.price{background:#FDEBD3;color:#874A0B}
+.badge.alpha{background:#ECE6FF;color:#4A2DB6}
+.badge.soon{background:rgba(19,21,40,.07);color:var(--ink-2)}
 .cat{font:500 13px/1 var(--body);color:var(--soft)}
 .card.soon .card-in{background:rgba(255,255,255,.35);box-shadow:none;border:2px dashed rgba(19,21,40,.16)}
 .soon-icon{background:rgba(255,255,255,.85);box-shadow:inset 0 0 0 1px var(--line-2);color:var(--soft);font:500 36px/1 var(--display)}
