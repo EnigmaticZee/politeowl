@@ -95,7 +95,7 @@ html.js .squiggle path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.1
 .toybar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:30px}
 html:not(.js) .toybar{display:none}
 .toyhint{display:flex;align-items:center;gap:8px;font:400 21px/1.15 var(--serif);font-style:italic;color:var(--ink-2)}
-.toyhint-arrow{width:42px;height:28px;flex:none;color:var(--amber);transform:translateY(6px) rotate(6deg)}
+.toyhint-arrow{width:34px;height:34px;flex:none;color:var(--amber);transform:translateY(9px)}
 .toybtns{display:flex;gap:8px}
 .toybtn{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 15px 0 12px;border-radius:999px;border:0;background:rgba(255,255,255,.72);box-shadow:inset 0 0 0 1px var(--line-2);font:600 13.5px/1 var(--body);color:var(--ink);cursor:pointer;transition:transform .5s var(--spring),background .2s}
 .toybtn:hover{background:#fff;transform:translateY(-2px) rotate(-2deg)}
@@ -142,34 +142,50 @@ html:not(.js) .filters{display:none}
 .seg button:hover{color:var(--ink)}
 .seg button[aria-pressed="true"]{color:#fff}
 .seg-ind,.chip-ind{position:absolute;z-index:0;left:0;top:0;width:0;height:0;border-radius:999px;background:var(--ink);box-shadow:0 8px 18px -10px rgba(19,21,40,.7)}
-.chips-wrap{max-width:100%;overflow-x:auto;scrollbar-width:none;padding:4px;margin:-4px}
+.chips-wrap{max-width:calc(100% + 12px);overflow-x:auto;scrollbar-width:none;padding:4px 6px;margin:-4px -6px}
 .chips-wrap::-webkit-scrollbar{display:none}
 .chips{position:relative;display:flex;gap:8px;width:max-content}
 .chip{position:relative;z-index:1;height:42px;padding:0 17px;border-radius:999px;border:0;background:rgba(255,255,255,.66);box-shadow:inset 0 0 0 1px var(--line-2);font:600 14.5px/1 var(--body);color:var(--ink-2);cursor:pointer;transition:color .35s,background .35s,box-shadow .35s,transform .5s var(--spring)}
 .chip:hover{transform:translateY(-2px)}
 .chip[aria-pressed="true"]{color:#fff;background:var(--ink);box-shadow:none}
 .filters.ready .chip[aria-pressed="true"]{background:transparent}
+/* no filter row while there's only one kind of thing on the shelf */
+.chips[hidden],.chips-wrap:has(.chips[hidden]){display:none}
 
 .grid{position:relative;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .card{position:relative;perspective:1000px}
 .card[hidden]{display:none}
-.card-in{position:relative;height:100%;display:flex;flex-direction:column;padding:26px 26px 24px;border-radius:var(--r);background:#fff;box-shadow:0 0 0 1px var(--line),0 1px 2px rgba(19,21,40,.04),0 24px 44px -30px rgba(19,21,40,.4);transform-style:preserve-3d;transition:transform .7s var(--spring),box-shadow .45s var(--out);overflow:hidden}
+.card-in{position:relative;height:100%;display:flex;flex-direction:column;padding:22px 22px 18px;border-radius:var(--r);background:#fff;box-shadow:0 0 0 1px var(--line),0 1px 2px rgba(19,21,40,.04),0 24px 44px -30px rgba(19,21,40,.4);transform-style:preserve-3d;transition:transform .7s var(--spring),box-shadow .45s var(--out);overflow:hidden}
 .card:hover .card-in{box-shadow:0 0 0 1px var(--line-2),0 34px 60px -30px rgba(19,21,40,.5)}
 .card:focus-within .card-in{box-shadow:0 0 0 3px var(--violet),0 34px 60px -30px rgba(19,21,40,.5)}
-.card-glow{position:absolute;left:var(--gx,85%);top:var(--gy,0%);width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,var(--c1),transparent 62%);opacity:0;transform:translate(-50%,-50%);transition:opacity .5s;pointer-events:none}
+.card-glow{position:absolute;z-index:-1;left:var(--gx,85%);top:var(--gy,0%);width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,var(--c1),transparent 62%);opacity:0;transform:translate(-50%,-50%);transition:opacity .5s;pointer-events:none}
 .card:hover .card-glow,.card:focus-within .card-glow{opacity:.26}
-.card-top{position:relative;display:flex;justify-content:space-between;align-items:flex-start}
-.app-icon{position:relative;display:grid;place-items:center;width:74px;height:74px;box-shadow:0 14px 24px -14px var(--c2);transition:transform .6s var(--spring)}
-.card:hover .app-icon{transform:translateZ(30px) rotate(-6deg) scale(1.04)}
-.card-arrow{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--ink);transition:transform .55s var(--spring),background .3s,color .3s,box-shadow .3s}
+/* nothing between the card and its link is positioned, so the link's cover spans the whole card */
+.card-top{display:flex;align-items:center;gap:16px}
+.app-icon{position:relative;flex:none;display:grid;place-items:center;width:60px;height:60px;box-shadow:0 12px 20px -12px var(--c2);transition:transform .6s var(--spring)}
+.card:hover .app-icon{transform:translateZ(30px) rotate(-6deg) scale(1.06)}
+.card-title{min-width:0}
+.card-name{display:flex;flex-wrap:wrap;align-items:center;gap:6px 9px}
+.card-name .badge{height:22px;padding:0 9px;font-size:11.5px}
+.card-sub{display:flex;align-items:center;margin-top:6px}
+.card-arrow{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--ink);transition:transform .55s var(--spring),background .3s,color .3s,box-shadow .3s}
 .card:hover .card-arrow,.card:focus-within .card-arrow{transform:rotate(45deg);background:var(--ink);color:#fff;box-shadow:none}
-.card h3{font:740 28px/1.05 var(--display);letter-spacing:-.035em;margin-top:24px}
+.card h3{font:740 25px/1.05 var(--display);letter-spacing:-.035em}
+/* the price on a card: big enough to read at a glance */
+.price{display:flex;align-items:flex-end;gap:6px;color:var(--ink)}
+.price .amt{display:flex;align-items:flex-end;gap:7px}
+.price b{display:flex;align-items:flex-start;font:740 26px/1 var(--display);letter-spacing:-.03em}
+.price .per{margin-bottom:3px;font:500 13.5px/1 var(--body);color:var(--soft)}
+.price .cur{font-size:.56em;line-height:1;margin:.12em .04em 0 0;color:var(--ink-2)}
+.price .from{margin-bottom:3px;font:500 13.5px/1 var(--body);color:var(--soft)}
+.price.tbd b{font-size:18px;letter-spacing:-.02em;color:var(--ink-2)}
 .card-link{color:inherit;text-decoration:none}
 .card-link::after{content:"";position:absolute;inset:0;z-index:4}
 .card-in{isolation:isolate}
 .card-link:focus-visible{outline:none}
-.card p{position:relative;margin-top:10px;color:var(--muted);flex:1}
-.card-foot{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:24px}
+.card p{position:relative;margin-top:16px;font-size:15.5px;line-height:1.55;color:var(--muted);flex:1}
+.card-foot{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.card.soon .card-foot{align-items:center;min-height:55px}
 .badges{display:flex;flex-wrap:wrap;gap:6px}
 .badge{display:inline-flex;align-items:center;height:27px;padding:0 11px;border-radius:999px;font:600 12.5px/1 var(--body)}
 .badge.free{background:#DCF5E7;color:#14613C}
@@ -180,13 +196,14 @@ html:not(.js) .filters{display:none}
 .badge.soon{background:rgba(19,21,40,.07);color:var(--ink-2)}
 .cat{font:500 13px/1 var(--body);color:var(--soft)}
 .card.soon .card-in{background:rgba(255,255,255,.35);box-shadow:none;border:2px dashed rgba(19,21,40,.16)}
-.soon-icon{background:rgba(255,255,255,.85);box-shadow:inset 0 0 0 1px var(--line-2);color:var(--soft);font:500 36px/1 var(--display)}
+.soon-icon{background:rgba(255,255,255,.85);box-shadow:inset 0 0 0 1px var(--line-2);color:var(--soft);font:500 32px/1 var(--display)}
 .soon-icon::before{display:none}
 .card.soon:hover .soon-icon{animation:wobble .9s var(--out);transform:none}
 .text-link{position:relative;z-index:5;font-weight:600;font-size:15px;color:var(--ink);text-underline-offset:4px}
 .text-link:hover{text-decoration-color:var(--amber);text-decoration-thickness:2px}
 
 .empty{text-align:center;padding:40px 0 10px}
+.empty p{max-width:30ch;margin-left:auto;margin-right:auto;text-wrap:balance}
 .empty-owl{width:78px;height:auto;margin:0 auto 16px}
 .ep{animation:look 3.2s ease-in-out infinite}
 .empty p{color:var(--muted);font-size:17px}
@@ -404,7 +421,7 @@ html.hush .ep,html.hush .orbit,html.hush .p-quiet:not(.hushed) .noise{animation-
   .pgrid .pcard:last-child{grid-column:auto}
   .shelf-head{align-items:flex-start;margin-bottom:28px}
   .filters{align-items:flex-start;width:100%}
-  .card h3{font-size:26px}
+  .card h3{font-size:24px}
   .foot-inner{grid-template-columns:1fr}
   .peeker{width:80px;right:16px}
   .peek-owl{width:80px}

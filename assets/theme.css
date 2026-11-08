@@ -157,6 +157,13 @@ html.theme-anim body,html.theme-anim body *,html.theme-anim body *::before,html.
 [data-theme="dark"] .feat,[data-theme="dark"] .facts{background:var(--surface);box-shadow:0 0 0 1px var(--line),0 24px 44px -30px rgba(0,0,0,.7)}
 [data-theme="dark"] .feat:hover{box-shadow:0 0 0 1px var(--line-2),0 34px 60px -30px rgba(0,0,0,.8)}
 [data-theme="dark"] .feat-num{color:color-mix(in srgb,var(--c1) 80%,#fff)}
+[data-theme="dark"] .buy{background:rgba(22,27,51,.82);box-shadow:0 0 0 1px var(--line),0 40px 70px -46px rgba(0,0,0,.85)}
+[data-theme="dark"] .buy::before{background:radial-gradient(circle,color-mix(in srgb,var(--c1) 22%,transparent),transparent 66%)}
+[data-theme="dark"] .buy-meta b{background:color-mix(in srgb,var(--c1) 18%,transparent);color:color-mix(in srgb,var(--c1) 70%,#fff)}
+[data-theme="dark"] .btn-soon .btn-icon{background:rgba(255,255,255,.07)}
+[data-theme="dark"] .bb-in{background:rgba(22,27,51,.84);box-shadow:0 0 0 1px var(--line-2),0 22px 44px -22px rgba(0,0,0,.8)}
+[data-theme="dark"] .bb-btn{background:var(--ink);color:var(--bg)}
+[data-theme="dark"] .bb-btn:hover{background:#fff}
 
 /* ---------- dark: not-found page ---------- */
 [data-theme="dark"] .nf-owl path[fill="#141A33"]{fill:var(--owl-light)}

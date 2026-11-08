@@ -328,7 +328,7 @@
 
     function measure() {
       W = hero.clientWidth;
-      S = clamp(W * 0.078, 62, 116);
+      S = clamp(W * 0.066, 54, 96);
       items.forEach(function (it) {
         it.on = !(it.desk && W < 700);
         it.el.classList.toggle('off', !it.on);
@@ -750,7 +750,10 @@
         setTimeout(function () { if (my !== gen) return; leavingNow.forEach(clearLeaving); leavingNow = []; anims = []; }, 1000);
       }
 
-      count.textContent = shown + (shown === 1 ? ' app' : ' apps') + (unf ? '' : ' shown');
+      // the count and the empty shelf speak about whichever kind is picked
+      var picked = $('[data-filter="cat"][data-value="' + state.cat + '"]', filters);
+      var noun = ((picked && picked.getAttribute('data-noun')) || count.getAttribute('data-noun') || 'thing|things').split('|');
+      count.textContent = shown + ' ' + (shown === 1 ? noun[0] : noun[1]);
       if (animate && !reduce && count.animate) count.animate([{ transform: 'translateY(8px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 450, easing: 'cubic-bezier(.2,.8,.2,1)' });
       var wasHidden = empty.hidden;
       empty.hidden = shown !== 0;
@@ -1091,6 +1094,21 @@
     // another tab changed it: follow along
     window.addEventListener('storage', function (e) { if (e.key === 'po-theme') apply(order.indexOf(e.newValue) >= 0 ? e.newValue : 'auto'); });
     apply(pref());
+  })();
+
+  /* ---------- the buy bar that follows you down an app page ---------- */
+  (function buybar() {
+    // shown once the price has scrolled away, tucked away again at the footer
+    var bar = $('#buybar'), panel = $('#buy'), foot = $('.foot');
+    if (!bar || !panel || !('IntersectionObserver' in window)) return;
+    var past = false, atFoot = false;
+    function show() { var on = past && !atFoot; bar.classList.toggle('on', on); root.classList.toggle('buybar-on', on); }
+    new IntersectionObserver(function (es) {
+      var e = es[es.length - 1]; past = !e.isIntersecting && e.boundingClientRect.top < 0; show();
+    }).observe(panel);
+    if (foot) new IntersectionObserver(function (es) {
+      atFoot = es[es.length - 1].isIntersecting; show();
+    }, { rootMargin: '0px 0px -80px 0px' }).observe(foot);
   })();
 
   /* ---------- reveal on scroll ---------- */
