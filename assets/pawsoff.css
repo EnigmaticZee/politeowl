@@ -1,0 +1,119 @@
+/* Paws Off page: "Lock it. Then try to type." — a small keyboard you can lock (assets/pawsoff.js) */
+.try{padding:0 0 clamp(64px,8vw,104px)}
+html:not(.js) .try{display:none}
+.desk{display:grid;grid-template-columns:minmax(270px,.78fr) 1.5fr;border-radius:36px;background:#fff;overflow:hidden;
+  box-shadow:0 0 0 1px var(--line),0 1px 2px rgba(19,21,40,.04),0 44px 80px -54px color-mix(in srgb,var(--c2) 70%,#131528)}
+
+/* the app's own panel, redrawn: status, the big key, what's going on */
+.desk-panel{position:relative;display:flex;flex-direction:column;align-items:center;padding:30px 28px 30px;text-align:center;border-right:1px solid var(--line);
+  background:radial-gradient(90% 70% at 50% 32%,color-mix(in srgb,var(--c1) 26%,#fff),color-mix(in srgb,var(--c1) 7%,#F4F5F9) 78%)}
+.desk-chip{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px 0 11px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font:600 13px/1 var(--body);color:var(--ink-2)}
+.desk-chip i{width:8px;height:8px;border-radius:50%;background:#2FA36B;box-shadow:0 0 0 3px rgba(47,163,107,.16);transition:background .3s,box-shadow .3s}
+.desk.locked .desk-chip i{background:var(--c2);box-shadow:0 0 0 3px color-mix(in srgb,var(--c2) 20%,transparent)}
+
+.lockkey{position:relative;margin-top:26px;width:156px;height:156px;padding:0;border:0;border-radius:40px;cursor:pointer;
+  background:linear-gradient(180deg,#FFFFFF,#F2EFEA);
+  box-shadow:0 0 0 1px rgba(19,21,40,.07),0 9px 0 -1px #E3DDD4,0 10px 0 -1px rgba(19,21,40,.08),0 30px 40px -18px rgba(19,21,40,.32);
+  transition:transform .4s var(--spring),box-shadow .35s var(--out);-webkit-tap-highlight-color:transparent}
+.lk-face{position:absolute;inset:0;display:grid;place-items:center;border-radius:inherit}
+.lk-face::before{content:"";position:absolute;inset:13px;border-radius:28px;background:linear-gradient(180deg,#FCFBF9,#F4F1EC);box-shadow:inset 0 1px 0 #fff,0 1px 3px rgba(19,21,40,.08)}
+.lk-leg{position:absolute;left:25px;top:24px;z-index:1;font:700 11.5px/1 var(--body);letter-spacing:.17em;text-transform:uppercase;color:var(--soft)}
+.lk-dot{position:absolute;right:25px;top:23px;z-index:1;width:9px;height:9px;border-radius:50%;background:rgba(19,21,40,.13);transition:background .3s,box-shadow .3s}
+.lockkey svg{position:relative;z-index:1;width:60px;height:60px;margin-top:10px;color:rgba(19,21,40,.15);transition:color .35s,transform .6s var(--spring),filter .35s}
+.lockkey:hover svg{transform:scale(1.06) rotate(-7deg)}
+.lockkey:active{transform:translateY(5px)}
+.lockkey:focus-visible{outline:3px solid color-mix(in srgb,var(--c2) 60%,transparent);outline-offset:5px}
+.desk.locked .lockkey{transform:translateY(6px);box-shadow:0 0 0 1px rgba(19,21,40,.07),0 3px 0 -1px #E3DDD4,0 16px 26px -18px rgba(19,21,40,.32)}
+.desk.locked .lockkey svg{color:var(--c2);transform:scale(1.08);filter:drop-shadow(0 6px 10px color-mix(in srgb,var(--c2) 45%,transparent))}
+.desk.locked .lk-dot{background:var(--c2);box-shadow:0 0 0 4px color-mix(in srgb,var(--c2) 22%,transparent),0 0 12px var(--c2)}
+.lockkey.pop{animation:keypop .5s var(--spring)}
+@keyframes keypop{40%{transform:translateY(-4px) scale(1.04)}}
+
+.desk-title{margin-top:28px;font:760 clamp(26px,2.4vw,32px)/1.05 var(--display);letter-spacing:-.035em;color:var(--ink)}
+.desk-sub{max-width:30ch;min-height:4.5em;margin-top:10px;font-size:15px;line-height:1.5;color:var(--muted)}
+.desk-count{display:inline-flex;align-items:center;height:32px;margin-top:14px;padding:0 14px;border-radius:999px;background:rgba(19,21,40,.05);font:600 13.5px/1 var(--body);color:var(--ink-2);font-variant-numeric:tabular-nums}
+
+/* the note and the keyboard */
+.desk-type{display:flex;flex-direction:column;gap:20px;min-width:0;padding:28px}
+.note{display:block;border-radius:22px;background:#F6F7FA;box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;cursor:text;transition:box-shadow .3s}
+.note:focus-within{box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--c2) 55%,transparent),0 0 0 4px color-mix(in srgb,var(--c2) 14%,transparent)}
+.note-head{display:block;padding:14px 18px 13px;border-bottom:1px solid var(--line);font:500 13.5px/1 var(--body);color:var(--soft)}
+.note-head b{font-weight:600;color:var(--ink-2)}
+.note textarea{display:block;width:100%;min-height:100px;padding:14px 18px 16px;border:0;resize:none;outline:none;background:transparent;font:500 17px/1.5 var(--body);color:var(--ink)}
+.note textarea::placeholder{color:var(--soft);opacity:.8}
+.desk.locked .note{box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--c2) 45%,transparent)}
+.desk.locked .note textarea{caret-color:transparent}
+
+.kb-wrap{position:relative}
+.kb{display:flex;flex-direction:column;gap:6px;padding:12px;border-radius:22px;background:linear-gradient(180deg,#E8EAF0,#DEE1E9);box-shadow:inset 0 1px 0 rgba(255,255,255,.7);user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.kb .r{display:flex;gap:6px}
+.k{flex:1 1 0;min-width:0;display:grid;place-items:center;height:42px;border-radius:9px;background:#fff;box-shadow:0 1.5px 0 rgba(19,21,40,.17),0 0 0 .5px rgba(19,21,40,.06);font:600 14px/1 var(--body);color:var(--ink-2);cursor:pointer;transition:transform .12s,background .15s,box-shadow .12s,color .25s;-webkit-tap-highlight-color:transparent}
+.k.wide{font-size:12.5px;color:var(--soft)}
+.k.gap{visibility:hidden;pointer-events:none}
+.k.down{transform:translateY(1.5px);background:color-mix(in srgb,var(--c1) 34%,#fff);box-shadow:0 0 0 .5px rgba(19,21,40,.08)}
+.desk.locked .k{color:rgba(19,21,40,.32)}
+.desk.locked .k.down{background:color-mix(in srgb,var(--c2) 16%,#fff)}
+.kb-held{position:absolute;left:50%;top:0;z-index:2;display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 14px 0 10px;border-radius:999px;background:var(--ink);color:var(--bg);font:600 12.5px/1 var(--body);white-space:nowrap;opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.85);transition:opacity .25s,transform .45s var(--spring)}
+.kb-held svg{width:15px;height:15px;color:var(--c1)}
+.desk.locked .kb-held{opacity:1;transform:translate(-50%,-50%) scale(1)}
+
+/* a caught key hops off its keycap, crossed out */
+.bounce{position:absolute;z-index:3;margin-left:-.35em;pointer-events:none;font:700 17px/1 var(--body);color:var(--c2);animation:hop .8s var(--out) forwards}
+.bounce s{text-decoration-thickness:2px}
+@keyframes hop{0%{opacity:0;transform:translateY(4px) scale(.7)}25%{opacity:1;transform:translateY(-12px) scale(1.12)}100%{opacity:0;transform:translateY(-34px) rotate(14deg) scale(.9)}}
+
+/* paw prints when the cat walks across */
+.kb-walk{position:absolute;inset:0;z-index:2;pointer-events:none}
+.kb-walk svg{position:absolute;width:30px;height:30px;color:color-mix(in srgb,var(--c2) 85%,#131528);opacity:0;transform:rotate(var(--r,0deg)) scale(.5);transition:opacity .25s,transform .4s var(--spring)}
+.kb-walk svg.on{opacity:.9;transform:rotate(var(--r,0deg)) scale(1)}
+
+.desk-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 18px}
+.cat-btn{height:48px;padding:0 10px 0 20px;gap:10px;font-size:15px}
+.cat-btn .ghost-icon svg{width:20px;height:20px;color:var(--c2)}
+.cat-btn:hover .ghost-icon{transform:rotate(-12deg) scale(1.1)}
+.desk-private{font-size:13.5px;color:var(--soft)}
+
+@media (max-width:900px){
+  .desk{grid-template-columns:1fr}
+  .desk-panel{border-right:0;border-bottom:1px solid var(--line)}
+}
+@media (max-width:560px){
+  .desk{border-radius:30px}
+  .desk-panel{padding:24px 20px 24px}
+  .lockkey{width:128px;height:128px;margin-top:20px;border-radius:34px}
+  .lk-face::before{inset:11px;border-radius:24px}
+  .lk-leg{left:21px;top:20px}
+  .lk-dot{right:21px;top:19px}
+  .lockkey svg{width:50px;height:50px}
+  .desk-title{margin-top:22px}
+  .desk-sub{min-height:0}
+  .desk-type{gap:16px;padding:18px}
+  .kb{padding:7px;gap:5px;border-radius:16px}
+  .kb .r{gap:4px}
+  .k{height:38px;border-radius:7px;font-size:13px}
+  .k.wide{font-size:11px}
+  .desk-foot{justify-content:center;text-align:center}
+}
+@media (prefers-reduced-motion: reduce){
+  .lockkey,.lockkey svg,.k,.kb-walk svg{transition:none}
+  .lockkey.pop{animation:none}
+}
+
+/* dark */
+[data-theme="dark"] .desk{background:var(--surface);box-shadow:0 0 0 1px var(--line),0 44px 80px -54px rgba(0,0,0,.9)}
+[data-theme="dark"] .desk-panel{background:radial-gradient(90% 70% at 50% 32%,color-mix(in srgb,var(--c1) 20%,#161B33),color-mix(in srgb,var(--c1) 5%,#11152B) 78%)}
+[data-theme="dark"] .desk-chip{background:var(--surface-2)}
+[data-theme="dark"] .lockkey{background:linear-gradient(180deg,#2D3356,#242A46);box-shadow:0 0 0 1px rgba(255,255,255,.07),0 9px 0 -1px #161A30,0 30px 40px -18px rgba(0,0,0,.6)}
+[data-theme="dark"] .lk-face::before{background:linear-gradient(180deg,#323A5E,#2A3150);box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}
+[data-theme="dark"] .lk-dot{background:rgba(255,255,255,.16)}
+[data-theme="dark"] .lockkey svg{color:rgba(255,255,255,.17)}
+[data-theme="dark"] .desk.locked .lockkey{box-shadow:0 0 0 1px rgba(255,255,255,.07),0 3px 0 -1px #161A30,0 16px 26px -18px rgba(0,0,0,.6)}
+[data-theme="dark"] .desk.locked .lockkey svg{color:color-mix(in srgb,var(--c2) 80%,#fff)}
+[data-theme="dark"] .desk-count{background:rgba(255,255,255,.06)}
+[data-theme="dark"] .note{background:var(--surface-2)}
+[data-theme="dark"] .kb{background:linear-gradient(180deg,#1C2139,#151A2F);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+[data-theme="dark"] .k{background:#2A3050;color:var(--ink-2);box-shadow:0 1.5px 0 rgba(0,0,0,.5),0 0 0 .5px rgba(255,255,255,.05)}
+[data-theme="dark"] .k.wide{color:var(--soft)}
+[data-theme="dark"] .k.down{background:color-mix(in srgb,var(--c2) 32%,#2A3050)}
+[data-theme="dark"] .desk.locked .k{color:rgba(255,255,255,.28)}
+[data-theme="dark"] .kb-walk svg{color:color-mix(in srgb,var(--c1) 85%,#fff)}

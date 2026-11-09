@@ -21,8 +21,9 @@ When something changes, update them all. Also confirm the three "polite promise"
 for every app.
 
 ## Checkout
-Until an app's checkout is ready, its page shows a greyed-out "Buying opens soon" button in the buy
-panel. To open buying, swap that `<button class="btn btn-soon" disabled>` for a link to the checkout,
+Until an app's checkout is ready, its page shows the price with a "Coming soon" tag
+(`<span class="soon-tag">`) and no Buy button. To open buying, remove the tag and the panel's `buy-soon`
+class, add a link to the checkout in the panel's `buy-actions`,
 `<a class="btn btn-primary magnetic" href="CHECKOUT-LINK"><span>Buy NAME</span>…</a>`, and add the
 bottom buy bar (`<div class="buybar" id="buybar">`, see `apps/dupetabs.html`) with its Buy link to the
 same checkout.
