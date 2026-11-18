@@ -451,3 +451,8 @@ html.hush .ep,html.hush .orbit,html.hush .p-quiet:not(.hushed) .noise{animation-
 @media (prefers-reduced-motion: reduce){
   .bug{animation:none}
 }
+
+/* ---------- a sale: the regular price struck through before the sale price ---------- */
+.amt .was{margin-right:8px;font-size:15px;font-weight:650;color:var(--soft);text-decoration:line-through;text-decoration-thickness:1.5px;align-self:center}
+.price-big .amt .was{font-size:24px;margin-right:10px;text-decoration-thickness:2px}
+.sale-tag{align-self:center}
